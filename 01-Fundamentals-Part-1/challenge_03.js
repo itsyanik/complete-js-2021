@@ -70,7 +70,7 @@ const determineWinner = (teamOne, teamTwo) => {
   return "Looks like something went wrong with the function. Check your logic and fix it."
 }
 
-const dataOne = {
+const challengeThreeDataOne = {
   dolphins: {
     name: "Dolphins",
     scores: [96, 108, 89],
@@ -96,7 +96,7 @@ const dataOne = {
   }
 }
 
-const dataBonusOne = {
+const challengeThreeDataBonusOne = {
   dolphins: {
     name: "Dolphins",
     scores: [97, 112, 101],
@@ -122,7 +122,7 @@ const dataBonusOne = {
   }
 }
 
-const dataBonusTwo = {
+const challengeThreeDataBonusTwo = {
   dolphins: {
     name: "Dolphins",
     scores: [97, 112, 101],
@@ -148,6 +148,6 @@ const dataBonusTwo = {
   }
 }
 
-console.log(`First data: ${dataOne.winner}`);
-console.log(`Bonus data one: ${dataBonusOne.winner}`);
-console.log(`Bonus data two: ${dataBonusTwo.winner}`);
+console.log(`First data: ${challengeThreeDataOne.winner}`);
+console.log(`Bonus data one: ${challengeThreeDataBonusOne.winner}`);
+console.log(`Bonus data two: ${challengeThreeDataBonusTwo.winner}`);
