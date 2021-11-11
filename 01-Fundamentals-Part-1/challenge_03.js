@@ -148,6 +148,69 @@ const challengeThreeDataBonusTwo = {
   }
 }
 
+console.log('---------------------------------------------');
 console.log(`First data: ${challengeThreeDataOne.winner}`);
 console.log(`Bonus data one: ${challengeThreeDataBonusOne.winner}`);
 console.log(`Bonus data two: ${challengeThreeDataBonusTwo.winner}`);
+console.log('---------------------------------------------');
+/* 
+  PSA the challenge was not verifying if they had scored 100 during one of the rounds,
+  but to check if they averaged 100 or greater. This makes the challenge a lot simpler.
+  Here's the new code:
+  keeping variables names, and adding a _fix preffix to them.
+*/
+
+
+const _fixDataOne = {
+  dolphins: {
+    name: "Dolphins",
+    scores: [96, 108, 89],
+    get average() {
+      return getAverage(this.scores);
+    },
+  },
+  koalas: {
+    name: "Koalas",
+    scores: [88, 91, 110],
+    get average() {
+      return getAverage(this.scores);
+    },
+  },
+  get winner() {
+    return _fixDetermineWinner(this.dolphins, this.koalas);
+  }
+}
+
+const _fixDetermineWinner = (teamOne, teamTwo) => {
+  if (teamOne.average >= 100 && teamOne.average > teamTwo.average) {
+
+    return `Team ${teamOne.name} has the high score with ${teamOne.average.toFixed(2)}!`;
+  } else if (teamOne.average < teamTwo.average && teamTwo.average >= 100) {
+
+    return `Team ${teamTwo.name} has the high score with ${teamTwo.average.toFixed(2)}!`;
+  } else if (teamOne.average < 100 && teamTwo.average < 100) {
+   
+    return "No minimum score met for any of the teams! No Winners!!";
+  } else if (teamOne.average >= 100 && teamTwo.average >= 100 && teamOne.average === teamTwo.average) {
+
+    return "Both win! Scores are tied!";
+  }
+}
+
+console.log('Fixed challenge results:');
+console.log(`First data: ${_fixDataOne.winner}`);
+console.log(`Bonus data one: ${challengeThreeDataBonusOne.winner}`);
+console.log(`Bonus data two: ${challengeThreeDataBonusTwo.winner}`);
+
+/* 
+  Teacher solution
+
+  scoreDolphins > scoreKoalas && scoreDolphins >= 100
+    > Dolphin wins
+    else if (scoreKolas > scoreDolphins && scoreKoalas >= 100)
+      > Koalas wins
+    else if (socreDolphins === scoreKoalas)
+      > Both win
+    else 
+      > No one wins
+*/
