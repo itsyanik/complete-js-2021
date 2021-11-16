@@ -33,5 +33,5 @@ const tip = value => value >= 50 && value <= 300 ? value * 0.15 : value * 0.20;
 const totalValue = (value, tip) => value + tip;
 
 console.log(`The bill was 275, the tip was ${tip(275)}, and the total value ${totalValue(275, tip(275))}.`);
-console.log(`The bill was 275, the tip was ${tip(40)}, and the total value ${totalValue(275, tip(40))}.`);
-console.log(`The bill was 275, the tip was ${tip(430)}, and the total value ${totalValue(275, tip(430))}.`);
+console.log(`The bill was 40, the tip was ${tip(40)}, and the total value ${totalValue(275, tip(40))}.`);
+console.log(`The bill was 430, the tip was ${tip(430)}, and the total value ${totalValue(275, tip(430))}.`);
