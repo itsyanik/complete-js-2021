@@ -55,9 +55,6 @@ const checkWinner = (avgDolphins, avgKoalas) => {
   const dolphinsWins = isDoubleAvg(avgDolphins, avgKoalas);
   const koalasWins = isDoubleAvg(avgKoalas, avgDolphins);
 
-  console.log('Dolhpins: ', dolphinsWins);
-  console.log('Koalas: ', koalasWins);
-
   if (!dolphinsWins && !koalasWins) {
     return "No one wins! Draw!";
   }
