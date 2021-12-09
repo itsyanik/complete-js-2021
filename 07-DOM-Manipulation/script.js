@@ -47,18 +47,9 @@ document.querySelector('.check').addEventListener('click', () => {
     message('No number!');
   } else if (guess === secretNumber) {
     win();
-  } else if (guess > secretNumber) {
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      message('Too high!');
-      score--;
-      calcScore(score);
-    } else {
-      message('Game over!');
-      calcScore(0);
-    }
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      message('Too low!');
+      guess > secretNumber ? message('Too high!') : message('Too low!');
       score--;
       calcScore(score);
     } else {
