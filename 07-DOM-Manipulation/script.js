@@ -2,6 +2,8 @@
 
 let secretNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
+let number = document.querySelector('.number');
+let highScore = 0;
 
 const message = msg => {
   let message = document.querySelector('.message');
@@ -16,19 +18,25 @@ const calcScore = pts => {
 };
 
 const win = () => {
-  let number = document.querySelector('.number');
+  let highScoreContainer = document.querySelector('.highscore');
   number.style.width = '30rem';
   number.textContent = secretNumber;
   document.querySelector('body').style.backgroundColor = '#60b347';
   message('Correct number!');
+  if (score > highScore) {
+    highScore = score;
+    highScoreContainer.textContent = highScore;
+  }
 
   return null;
 };
 
 const restart = () => {
-  score = 20;
   document.querySelector('.guess').value = '';
+  document.querySelector('body').style.backgroundColor = '#222';
+  score = 20;
   message('Start guessing...');
+  number.style.width = '15rem';
   secretNumber = Math.floor(Math.random() * 20) + 1;
 };
 
