@@ -1,6 +1,6 @@
 'use strict';
 
-const secretNumber = Math.floor(Math.random() * 20) + 1;
+let secretNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
 
 const message = msg => {
@@ -23,6 +23,13 @@ const win = () => {
   message('Correct number!');
 
   return null;
+};
+
+const restart = () => {
+  score = 20;
+  document.querySelector('.guess').value = '';
+  message('Start guessing...');
+  secretNumber = Math.floor(Math.random() * 20) + 1;
 };
 
 document.querySelector('.check').addEventListener('click', () => {
@@ -52,3 +59,5 @@ document.querySelector('.check').addEventListener('click', () => {
     }
   }
 });
+
+document.querySelector('.again').addEventListener('click', () => restart());
