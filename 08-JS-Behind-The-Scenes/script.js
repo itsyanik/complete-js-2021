@@ -88,3 +88,57 @@ calcAge(1991);
 // since it was defined inside a scope that is a level
 // below the Global Scope. Same goes for printAge().
 console.log(age);
+
+/********************** 
+  HOISTING AND TDZ IN PRACTICE 
+ **********************/
+
+// trying to use variables before their declaration
+console.log(me); // undefined. var is hoisted as undefined
+console.log(job); // cannot access before initialization. job is in TDZ
+console.log(year); // cannot access before initialization. year is in TDZ
+
+var me = 'Jonas';
+let job = 'teacher';
+const year = 1991;
+
+// functions
+console.log(addDeclaration(1, 2)); // 3
+console.log(addExpression(1, 2)); // cannot access before initialization. TDZ.
+console.log(addArrow(1, 2)); // cannot access before initialization. TDZ.
+
+// both functions are in const, so they're in the TDZ
+
+function addDeclaration(a, b) {
+  return a + b;
+}
+
+/* 
+var addExpression = function (a, b) { // uncaught error: not a function
+  return a + b;
+};
+// Variables declared with var are hoisted as undefined
+// so when you access them before initialization, you're trying to call
+// undefined. 
+// Function declaration is the only one you can use before initialization
+*/
+
+const addExpression = function (a, b) {
+  return a + b;
+};
+
+const addArrow = (a, b) => a + b;
+
+// HOISTING PITFALL
+if (!numProducts) deleteShoppingCart();
+var numProducts = 10;
+function deleteShoppingCart() {
+  console.log('All products deleted');
+}
+
+/* 
+  When this script is called, we'll get the function's console.log
+  even tho numProducts is 10.
+  This happens because the var will be hoisted as undefined,
+  and undefined is a falsy value.
+*/
