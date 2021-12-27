@@ -142,3 +142,50 @@ function deleteShoppingCart() {
   This happens because the var will be hoisted as undefined,
   and undefined is a falsy value.
 */
+
+/********************** 
+  THIS KEYWORD IN PRACTICE 
+ **********************/
+
+console.log(this); // window object - Global Scope
+
+const calcAge = function (birthyear) {
+  console.log(1989 - birthyear);
+  console.log(this); // undefined in strict mode, else global object. Window for browsers
+};
+
+const calcAgeArrow = birthyear => {
+  console.log(1989 - birthyear);
+  console.log(this); // window object
+  // arrow functions use the LEXICAL THIS
+  // it inherits from the parent scope
+};
+
+const otherJonas = {
+  year: 1991,
+  calcAge: function () {
+    console.log(this); // otherJonas object
+    console.log(2037 - this.year);
+  },
+};
+
+/* 
+  The this keyword above points to the object because
+  it was the object calling that method.
+  The this keyword DOES NOT simply point to the object
+  in which we wrote the method.
+*/
+
+const matilda = {
+  year: 2017,
+};
+
+// copy method from one object to other
+// METHOD BORROWING
+matilda.calcAge = otherJonas.calcAge;
+matilda.calcAge(); // this will point to matilda object
+// because it is the object that is calling the method.
+
+const f = otherJonas.calcAge;
+f(); // this is undefined
+// no more owner of the function
