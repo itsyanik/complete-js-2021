@@ -49,3 +49,55 @@ const arr = [1, 2];
 rest.set(arr, 'test');
 console.log(rest.get(arr));
 ```
+
+## Iterating through a map
+
+There is another way of adding elements to a map that is a bit less cumbersome than using the set method used before.
+
+```javascript
+const questions = new Map(
+  // will contain multiple arrays
+  // in each array, the first position
+  // is the key and the second is the value
+  [
+    ['question', 'what is the best programming language in the world?'],
+    [1, 'C'],
+    [2, 'Python'],
+    [3, 'JavaScript'],
+    ['correct', 1],
+    [true, 'Correct'],
+    [false, 'Try again!'],
+  ]
+);
+
+console.log(question);
+```
+
+When not adding elements programatically, this is the cleanest way to declare the key-value pairs of a map. Note how similar the returned result is to the returned value of `Object.keys`. This makes it easy to convert from objects to maps!
+
+```javaScript
+const hoursMap = new Map(Object.keys(openingHours));
+
+console.log(hoursMap);
+```
+
+Since maps are also an iterable, this means that they can also access the for loop.
+
+```javascript
+console.log(questions.get('question'));
+for (const [key, value] of questions) {
+  if (typeof key === 'number') {
+    console.log(`Answer: ${key}: ${value}`);
+  }
+}
+
+const answer = Prompt('Your answer: (1, 2 or 3)');
+console.log(answer);
+
+// advantage of having boolean as keys
+console.log(question.get(questions.get('correct') === answer));
+```
+
+When needed to build a map back to an array you can just spread the map into a new array, like so: `[ ...map]`.
+
+If you need to use the `entries, keys or value` methods, you will need to put them into an array and spread them to get the correct values! `[ ...map.entries()]`.
