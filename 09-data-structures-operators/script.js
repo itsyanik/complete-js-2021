@@ -196,8 +196,10 @@ const oddEntries = Object.entries(game.odds);
 const oddKeys = Object.keys(game.odds);
 
 for (const [team, odd] of oddEntries) {
-  console.log(`Odd of ${team}: ${odd} `);
-  console.log('-----------');
+  // Previous answer was incorrect, as no team name was identified
+  // it was solved by simply looking at game[team]
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr}: ${odd} `);
 }
 
 // Challenge 2-BONUS
