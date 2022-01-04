@@ -264,15 +264,22 @@ gameEvents.delete(64);
 console.log(gameEvents);
 
 // Challenge 3-3
+// Close, but the average calc is incorrect.
+// console.log(
+//   `An event happened, on average, every ${(gameEvents.size / (92 / 60)).toFixed(
+//     2
+//   )} minutes`
+// );
+
+// Improved with answer from challenge:
+const duration = [...gameEvents.keys()].pop();
 console.log(
-  `An event happened, on average, every ${(gameEvents.size / (92 / 60)).toFixed(
-    2
-  )} minutes`
+  `An event happened, on average, every ${duration / gameEvents.size} minutes`
 );
 
 // Challenge 4-3
 for (const [time, event] of gameEvents) {
-  if (Number(time) < 45) {
+  if (Number(time) <= 45) {
     console.log(`[FIRST HALF] ${time}: ${event}`);
   } else if (Number(time) > 45 && Number(time) < 90) {
     console.log(`[SECOND HALF] ${time}: ${event}`);
