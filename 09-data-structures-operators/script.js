@@ -277,7 +277,7 @@ console.log(
   `An event happened, on average, every ${duration / gameEvents.size} minutes`
 );
 
-// Challenge 4-3
+// Challenge 3-4
 for (const [time, event] of gameEvents) {
   if (Number(time) <= 45) {
     console.log(`[FIRST HALF] ${time}: ${event}`);
@@ -287,3 +287,76 @@ for (const [time, event] of gameEvents) {
     console.log(`[EXTRA TIME] ${time}: ${event}`);
   }
 }
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+/* 
+  Write a program that receives a list of variable names written in 
+    underscore_case and convert them to camelCase.
+
+  The input will come from a textarea inserted into the DOM (see code below), 
+  and conversion will happen when the button is pressed.
+
+THIS TEST DATA (pasted to textarea)
+underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+
+SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
+
+HINT 1: Remember which character defines a new line in the textarea 😉
+HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
+HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+Afterwards, test with your own test data!
+
+GOOD LUCK 😀
+*/
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+// Challenge 4
+// works_with_any_number_of_undersocores
+const underscoreCaseToCamelCase = function (string, stars) {
+  const lowerCase = string.toLowerCase();
+  const words = lowerCase.split('_');
+  const camelCase = [];
+  const starsRepeat = '✅'.repeat(stars);
+
+  for (let i = 0; i < words.length; i++) {
+    if (i === 0) {
+      camelCase.push(words[0]);
+    } else {
+      camelCase.push(`${words[i][0].toUpperCase()}${words[i].slice(1)}`);
+    }
+  }
+
+  console.log(`${camelCase.join('')} ${starsRepeat}`);
+};
+
+// underscoreCaseToCamelCase('underscore_case');
+// underscoreCaseToCamelCase('first_name');
+// underscoreCaseToCamelCase('Some_Variable');
+// underscoreCaseToCamelCase('calculate_AGE');
+// underscoreCaseToCamelCase('delayed_departure');
+console.log('-------------------');
+underscoreCaseToCamelCase('philosophy_in_a_cat');
+underscoreCaseToCamelCase('works_with_any_number_of_undersocores');
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const allInsertedWords = text.split('\n');
+
+  for (const [index, word] of allInsertedWords.entries()) {
+    underscoreCaseToCamelCase(word.trim(), index + 1);
+  }
+});
