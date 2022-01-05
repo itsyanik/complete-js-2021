@@ -366,23 +366,46 @@ const flights =
 const flightSeparator = flights.split('+');
 const flightData = [];
 
+const getCode = str => str.slice(0, 3).toUpperCase();
+const removeUnderline = str => str.replace('_', '');
+
 for (const flight of flightSeparator) {
-  const flightString = flight.replace('_', ' ').replace(':', 'h').split(';');
+  const flightString = flight.replace(':', 'h').split(';');
 
   const [flightStatus, flightFrom, flightTo, flightArrival] = flightString;
-  flightData.push([
-    flightStatus.replace('_', ' ').trim(),
-    flightFrom.replace(/([0-9]{3,})/g, '').toUpperCase(),
-    flightTo.replace(/([0-9]{3,})/g, '').toUpperCase(),
-    `(${flightArrival})`,
-  ]);
+
+  const sanitizedFlightString = `${
+    flightStatus
+      //   .replaceAll(
+      //   '_',
+      //   ' '
+      // )
+      .startsWith('_Delayed')
+      ? `🔴 ${removeUnderline(flightStatus)}`
+      : removeUnderline(flightStatus)
+  } from ${getCode(flightFrom)} to ${getCode(
+    flightTo
+  )} (${flightArrival})`.padStart(36);
+
+  console.log(sanitizedFlightString);
+
+  // Code before correction
+  // While it works aside from the emoji, it could have been
+  // simplified and done here.
+
+  // flightData.push([
+  //   flightStatus.replace('_', ' ').trim(),
+  //   flightFrom.replace(/([0-9]{3,})/g, '').toUpperCase(),
+  //   flightTo.replace(/([0-9]{3,})/g, '').toUpperCase(),
+  //   `(${flightArrival})`,
+  // ]);
 }
 
-for (const data of flightData) {
-  const [flightStatus, flightFrom, flightTo, flightArrival] = data;
-  const sanitizedFlightString = `${flightStatus} from ${flightFrom} to ${flightTo} ${flightArrival}`;
+// for (const data of flightData) {
+//   const [flightStatus, flightFrom, flightTo, flightArrival] = data;
+//   const sanitizedFlightString = `${flightStatus} from ${flightFrom} to ${flightTo} ${flightArrival}`;
 
-  if (flightStatus.toLowerCase().includes('delayed'))
-    console.log(sanitizedFlightString.padStart(5, 'eita '));
-  else console.log(sanitizedFlightString.padStart(5, ' '));
-}
+//   if (flightStatus.toLowerCase().includes('delayed'))
+//     console.log(sanitizedFlightString.padStart(5, 'eita '));
+//   else console.log(sanitizedFlightString.padStart(5, ' '));
+// }
