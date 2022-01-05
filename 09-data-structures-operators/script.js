@@ -343,11 +343,6 @@ const underscoreCaseToCamelCase = function (string, stars) {
   console.log(`${camelCase.join('')} ${starsRepeat}`);
 };
 
-// underscoreCaseToCamelCase('underscore_case');
-// underscoreCaseToCamelCase('first_name');
-// underscoreCaseToCamelCase('Some_Variable');
-// underscoreCaseToCamelCase('calculate_AGE');
-// underscoreCaseToCamelCase('delayed_departure');
 console.log('-------------------');
 underscoreCaseToCamelCase('philosophy_in_a_cat');
 underscoreCaseToCamelCase('works_with_any_number_of_undersocores');
