@@ -340,7 +340,7 @@ const underscoreCaseToCamelCase = function (string, stars) {
     }
   }
 
-  console.log(`${camelCase.join('')} ${starsRepeat}`);
+  console.log(`${camelCase.join('').padEnd(20)} ${starsRepeat}`);
 };
 
 console.log('-------------------');
