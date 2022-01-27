@@ -80,8 +80,18 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
+const createUsernames = function (accs) {
+  accs.forEach(acc => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
 
+displayMovements(account1.movements);
+createUsernames(accounts);
 /* 
 ////////////////////////
  Coding Challenge 1
