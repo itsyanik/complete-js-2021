@@ -191,7 +191,7 @@ const calcAverageHumanAge = function (dogs) {
   const over18 = toHumanAge.filter(age => age >= 18);
 
   const ageAverage = toHumanAge.reduce(
-    (acc, curr) => (acc + curr) / toHumanAge.length
+    (acc, curr) => (acc + curr) / over18.length
   );
 
   return {
