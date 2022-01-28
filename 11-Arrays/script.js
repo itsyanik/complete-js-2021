@@ -96,9 +96,30 @@ const calcPrintBalance = function (movements) {
   labelBalance.textContent = `${balance} EUR`;
 };
 
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  const outcomes = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter(int => int >= 1)
+    .reduce((acc, int) => acc + int, 0);
+
+  labelSumIn.textContent = `${incomes} EUR`;
+  labelSumOut.textContent = `${Math.abs(outcomes)} EUR`;
+  labelSumInterest.textContent = `${interest}`;
+};
+
 createUsernames(accounts);
 displayMovements(account1.movements);
 calcPrintBalance(account1.movements);
+calcDisplaySummary(account1.movements);
 /* 
 ////////////////////////
  Coding Challenge 1
