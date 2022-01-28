@@ -248,22 +248,3 @@ const calcAverageHumanAgeChain = dogs =>
     .reduce((acc, curr, _, arr) => acc + curr / arr.length, 0);
 console.log(calcAverageHumanAgeChain([5, 2, 4, 1, 15, 8, 3]));
 console.log(calcAverageHumanAgeChain([16, 6, 10, 5, 6, 1, 4]));
-// const calcAverageHumanAgeChain = function (dogs) {
-
-//   const toHumanAge = dogs.map(dog => {
-//     if (dog <= 2) return dog * 2;
-//     else return dog * 4 + 16;
-//   });
-
-//   const over18 = toHumanAge.filter(age => age >= 18);
-
-//   const ageAverage = toHumanAge.reduce(
-//     (acc, curr) => (acc + curr) / over18.length
-//   );
-
-//   return {
-//     humanAges: toHumanAge,
-//     over18,
-//     ageAverage,
-//   };
-// };
