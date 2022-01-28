@@ -96,7 +96,8 @@ const calcPrintBalance = function (movements) {
   labelBalance.textContent = `${balance} EUR`;
 };
 
-const calcDisplaySummary = function (movements) {
+const calcDisplaySummary = function (account) {
+  const { movements, interestRate } = account;
   const incomes = movements
     .filter(mov => mov > 0)
     .reduce((acc, curr) => acc + curr, 0);
@@ -107,7 +108,7 @@ const calcDisplaySummary = function (movements) {
 
   const interest = movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * interestRate) / 100)
     .filter(int => int >= 1)
     .reduce((acc, int) => acc + int, 0);
 
@@ -117,9 +118,26 @@ const calcDisplaySummary = function (movements) {
 };
 
 createUsernames(accounts);
-displayMovements(account1.movements);
-calcPrintBalance(account1.movements);
-calcDisplaySummary(account1.movements);
+
+btnLogin.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  const currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+
+    containerApp.style.opacity = 100;
+
+    displayMovements(currentAccount.movements);
+    calcPrintBalance(currentAccount.movements);
+    calcDisplaySummary(currentAccount);
+  }
+});
 /* 
 ////////////////////////
  Coding Challenge 1
