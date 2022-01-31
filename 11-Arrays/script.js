@@ -438,12 +438,13 @@ const isEatingEnough = dog => {
 };
 
 // Part 1
-dogs.map(dog => {
+dogs.forEach(dog => {
   dog.recommendedFood = Number((dog.weight ** 0.75 * 28).toFixed(2));
 });
 
 console.log(dogs);
 
+// Should have been .find
 // Part 2
 dogs.map(dog => {
   if (dog.owners.includes('Sarah')) {
@@ -491,6 +492,7 @@ const underfedOwners = underfedDogs
 console.log(underfedOwners + ' dogs eat too little');
 
 // Part 5
+// could use .some for 5 and 6
 console.log(dogs.map(dog => dog.recommendedFood === dog.curFood));
 
 // Part 6 & 7
