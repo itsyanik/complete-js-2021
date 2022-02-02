@@ -170,6 +170,33 @@ const createUsernames = function (accs) {
 };
 createUsernames(accounts);
 
+const startLogoutTimer = function () {
+  let time = 60 * 5;
+  const tick = function () {
+    const min = String(Math.floor(time / 60)).padStart(2, 0);
+    const seconds = String(time % 60).padStart(2, 0);
+    labelTimer.textContent = `${min}:${seconds}`;
+
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = 'Login to get started';
+      containerApp.style.opacity = 0;
+    }
+
+    time--;
+  };
+
+  tick();
+  const timer = setInterval(tick, 1000);
+
+  return timer;
+};
+
+const restartTimer = function () {
+  if (timer) clearInterval(timer);
+  timer = startLogoutTimer();
+};
+
 const updateUI = function (acc) {
   // Display movements
   displayMovements(acc);
@@ -183,7 +210,7 @@ const updateUI = function (acc) {
 
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, timer;
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -203,7 +230,7 @@ btnLogin.addEventListener('click', function (e) {
     const now = new Date();
     const options = {
       hour: 'numeric',
-      minutes: 'numeric',
+      minute: 'numeric',
       day: 'numeric',
       month: 'numeric',
       year: 'numeric',
@@ -217,6 +244,8 @@ btnLogin.addEventListener('click', function (e) {
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
+
+    restartTimer();
 
     // Update UI
     updateUI(currentAccount);
@@ -244,6 +273,8 @@ btnTransfer.addEventListener('click', function (e) {
     currentAccount.movementsDates.push(new Date().toISOString());
     receiverAcc.movementsDates.push(new Date().toISOString());
 
+    restartTimer();
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -260,6 +291,8 @@ btnLoan.addEventListener('click', function (e) {
       currentAccount.movements.push(amount);
 
       currentAccount.movementsDates.push(new Date().toISOString());
+
+      restartTimer();
 
       // Update UI
       updateUI(currentAccount);

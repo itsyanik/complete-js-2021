@@ -4,4 +4,4 @@ The `setTimeOut` function runs only once after the timer that is passed to it ha
 
 # Set Interval
 
-On the other hand the `setInterval` function keeps running basically forever at the given interval. `setInterval(() => /* code that you want to run every X seconds */, timer)`. The timer must be in miliseconds.
+On the other hand the `setInterval` function keeps running basically forever at the given interval. `setInterval(() => /* code that you want to run every X seconds */, timer)`. The timer must be in miliseconds. To stop the interval. call `clearInterval(timer)`.
