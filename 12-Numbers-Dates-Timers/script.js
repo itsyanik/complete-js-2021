@@ -81,7 +81,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
-const formatMovementsDate = function (date) {
+const formatMovementsDate = function (date, locale) {
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs(date2 - date1 / (1000 * 60 * 60 * 24)));
 
@@ -96,13 +96,13 @@ const formatMovementsDate = function (date) {
   const year = date.getFullYear();
   const displayDate = `${day}/${month}/${year}`;
 
-  return displayDate;
+  return new Intl.DateTimeFormat(locale).format(date);
 };
 
 const displayMovements = function (account, sort = false) {
   containerMovements.innerHTML = '';
 
-  const { movements } = account;
+  const { movements, locale } = account;
 
   const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
@@ -110,7 +110,7 @@ const displayMovements = function (account, sort = false) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const date = new Date(account.movementsDates[i]);
-    const displayDate = formatMovementsDate(date);
+    const displayDate = formatMovementsDate(date, locale);
 
     const html = `
       <div class="movements__row">
@@ -194,6 +194,20 @@ btnLogin.addEventListener('click', function (e) {
     }`;
     containerApp.style.opacity = 100;
 
+    const now = new Date();
+    const options = {
+      hour: 'numeric',
+      minutes: 'numeric',
+      day: 'numeric',
+      month: 'numeric',
+      year: 'numeric',
+    };
+
+    labelDate.textContent = new Intl.DateTimeFormat(
+      currentAccount.locale,
+      options
+    ).format(now);
+
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
@@ -201,14 +215,6 @@ btnLogin.addEventListener('click', function (e) {
     // Update UI
     updateUI(currentAccount);
   }
-
-  const date = new Date(account.movementsDates[i]);
-  const day = `${date.getDate()}`.padStart(2, 0);
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
-  const hour = `${date.getHours()}`.padStart(2, 0);
-  const mins = `${date.getMinutes()}`.padStart(2, 0);
-  labelDate.textContent = `${day}/${month}/${year}, ${hour}:${mins}`;
 });
 
 btnTransfer.addEventListener('click', function (e) {
