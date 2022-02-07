@@ -14,4 +14,6 @@ const jonas = new Person('Jonas', 1991);
 
 When the `new` keyword is called it creates the empty object and then calls the function, assigning the `this` keyword to the object. The object is linked to the prototype and the function automatically returns the object.
 
+It should be avoided to create methods as you create the instance as it would make calculations just too heavy if you had many objects being created at the same time.
+
 Keep in mind that constructor functions are not really a feature of the JavaScript language, they're just patterns that other developers came up with and everyone uses.
