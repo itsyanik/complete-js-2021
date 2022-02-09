@@ -17,7 +17,7 @@ const POPUP_MIN_WIDTH = 100;
 
 class Workout {
   date = new Date();
-  id = (Date().now + '').slice(-10);
+  id = (Date.now() + '').slice(-10);
 
   constructor(coords, distance, duration) {
     this.coords = coords;
@@ -90,6 +90,7 @@ class App {
     this._getPosition();
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
+    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
   }
 
   _getPosition() {
@@ -210,8 +211,9 @@ class App {
 
   _renderWorkout(workout) {
     const { type, id, distance, duration, description } = workout;
+    console.log(workout);
     // prettier-ignore
-    let html = `
+    const html = `
       <li class="workout workout--${type}" data-id="${id}">
         <h2 class="workout__title">${description}</h2>
         <div class="workout__details">
@@ -243,6 +245,20 @@ class App {
     `;
 
     form.insertAdjacentHTML('afterend', html);
+  }
+
+  _moveToPopup(e) {
+    const workoutEl = e.target.closest('.workout');
+
+    if (!workoutEl) return;
+
+    const workout = this.#workouts.find(w => w.id === workoutEl.dataset.id);
+    const { coords } = workout;
+
+    this.#map.setView(coords, MAP_ZOOM_LEVEL, {
+      animate: true,
+      pan: { duration: 1 },
+    });
   }
 }
 
