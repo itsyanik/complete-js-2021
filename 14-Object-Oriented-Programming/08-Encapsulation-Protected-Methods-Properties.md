@@ -88,16 +88,20 @@ class Account {
 
   deposit(val) {
     this.#movements.push(val);
+    // Makes method chainable
+    return this;
   }
 
   withdraw(val) {
     deposit(-val);
+    return this;
   }
 
   requestLoan(val) {
     if (this.#approveLoan(val)) {
       deposit(val);
       console.log('Loan approved');
+      return this;
     }
   }
 
