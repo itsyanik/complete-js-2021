@@ -88,6 +88,8 @@ class App {
 
   constructor() {
     this._getPosition();
+    this._getLocalStorage();
+
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
@@ -189,6 +191,7 @@ class App {
     this._renderWorkoutMarker(workout);
     this._renderWorkout(workout);
     this._hideForm();
+    this._setLocalStorage();
   }
 
   _renderWorkoutMarker(workout) {
@@ -211,7 +214,6 @@ class App {
 
   _renderWorkout(workout) {
     const { type, id, distance, duration, description } = workout;
-    console.log(workout);
     // prettier-ignore
     const html = `
       <li class="workout workout--${type}" data-id="${id}">
@@ -259,6 +261,27 @@ class App {
       animate: true,
       pan: { duration: 1 },
     });
+  }
+
+  _setLocalStorage() {
+    localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+  }
+
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('workouts'));
+
+    if (!data) return;
+
+    this.#workouts = data;
+
+    this.#workouts.forEach(w => {
+      this._renderWorkout(w);
+    });
+  }
+
+  reset() {
+    localStorage.removeItem('workouts');
+    location.reload();
   }
 }
 
