@@ -49,7 +49,19 @@ getCountryData('United Kingdom');
 const getCountryDataPromise = function (country) {
   fetch(`${restCountriesURL}/name/${country}`)
     .then(response => response.json())
-    .then(data => renderCountry(data[0]));
+    .then(data => {
+      const [countryData] = data;
+
+      renderCountry(countryData);
+      const borderCountry = countryData.borders[0];
+
+      console.log(borderCountry);
+      if (!borderCountry) return;
+
+      return fetch(`${restCountriesURL}/alpha/${borderCountry}`);
+    })
+    .then(response => response.json())
+    .then(data => renderCountry(data));
 };
 
 getCountryDataPromise('Mexico');
