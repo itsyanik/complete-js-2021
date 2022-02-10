@@ -270,18 +270,28 @@ createImage('img/img-1.jpg')
 
 // ASYNC AWAIT
 const whereAmIAsync = async function () {
-  const pos = await getPosition();
+  try {
+    const pos = await getPosition();
 
-  const { latitude: lat, longitude: lng } = pos.coords;
-  const geoSite = 'https://geocode.xyz';
+    const { latitude: lat, longitude: lng } = pos.coords;
+    const geoSite = 'https://geocode.xyz';
 
-  const geoCoding = await fetch(`${geoSite}/${lat},${lng}?geoit=json`);
-  const dataGeo = await geoCoding.json();
+    const geoCoding = await fetch(`${geoSite}/${lat},${lng}?geoit=json`);
 
-  const res = await fetch(`${restCountriesURL}/name/${dataGeo.country}`);
-  const data = await res.json();
+    if (!geoCoding.ok) throw new Error('Problem getting location data.');
 
-  return renderCountry(data);
+    const dataGeo = await geoCoding.json();
+
+    const res = await fetch(`${restCountriesURL}/name/${dataGeo.country}`);
+
+    if (!res.ok) throw new Error('Problem getting country data.');
+
+    const data = await res.json();
+
+    return renderCountry(data);
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 whereAmIAsync('Uruguay');
