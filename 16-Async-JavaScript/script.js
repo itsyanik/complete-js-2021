@@ -46,8 +46,8 @@ function renderCountry(data) {
   countriesContainer.style.opacity = 1;
 }
 
-// getCountryData('Portugal');
-// getCountryData('United Kingdom');
+getCountryData('Portugal');
+getCountryData('United Kingdom');
 
 // New modern way
 
@@ -141,6 +141,19 @@ const whereAmI = function (lat, lng) {
     .catch(err => console.error(err));
 };
 
-whereAmI(52.508, 13.381); // GERMANY
+// whereAmI(52.508, 13.381); // GERMANY
 // whereAmI(19.037, 72.873); // INDIA
 // whereAmI(-33.933, 18.474); // SOUTH AFRICA
+
+const lottery = new Promise(function (resolve, reject) {
+  console.log('Drawing lotto numbers');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN');
+    } else {
+      reject(new Error('You LOSE'));
+    }
+  }, 2000);
+});
+
+lottery.then(res => console.log(res)).catch(err => console.error(err));
