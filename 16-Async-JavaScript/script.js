@@ -182,7 +182,7 @@ const whereAmI2 = function () {
     .catch(err => console.error(err));
 };
 
-getPosition().then(res => console.log(res));
+getPosition().then(res => res);
 btn.addEventListener('click', whereAmI2);
 
 // Challenge #2
@@ -294,4 +294,30 @@ const whereAmIAsync = async function () {
   }
 };
 
-whereAmIAsync('Uruguay');
+whereAmIAsync();
+
+const getJSON = function (url, errorMsg = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+
+    return response.json();
+  });
+};
+
+const get3Countries = async function (c1, c2, c3) {
+  try {
+    const data = await Promise.all([
+      getJSON(`${restCountriesURL}/name/${c1}`),
+      getJSON(`${restCountriesURL}/name/${c2}`),
+      getJSON(`${restCountriesURL}/name/${c3}`),
+    ]);
+
+    const capitals = await data.map(d => d[0].capital);
+
+    console.log(capitals);
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+console.log(get3Countries('Uruguay', 'China', 'Russia'));
