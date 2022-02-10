@@ -25,8 +25,8 @@ const renderError = function (msg) {
 
 function renderCountry(data) {
   const { flag, name, region, population, languages, currencies } = data;
-  const language = languages[0].name;
-  const currency = currencies[0].name;
+  const language = languages[0]?.name;
+  const currency = currencies[0]?.name;
 
   const roundedPop = (Number(population) / 1000000).toFixed(1);
 
@@ -160,7 +160,7 @@ const getPosition = function () {
   });
 };
 
-const whereAmI2 = function (lat, lng) {
+const whereAmI2 = function () {
   console.log('--------------WHERE AM I 2---------------');
   getPosition()
     .then(pos => {
@@ -267,3 +267,21 @@ createImage('img/img-1.jpg')
     currImg.style.display = 'none';
   })
   .catch(err => console.error(err));
+
+// ASYNC AWAIT
+const whereAmIAsync = async function () {
+  const pos = await getPosition();
+
+  const { latitude: lat, longitude: lng } = pos.coords;
+  const geoSite = 'https://geocode.xyz';
+
+  const geoCoding = await fetch(`${geoSite}/${lat},${lng}?geoit=json`);
+  const dataGeo = await geoCoding.json();
+
+  const res = await fetch(`${restCountriesURL}/name/${dataGeo.country}`);
+  const data = await res.json();
+
+  return renderCountry(data);
+};
+
+whereAmIAsync('Uruguay');
