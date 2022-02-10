@@ -18,6 +18,11 @@ function getCountryData(country) {
   });
 }
 
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  countriesContainer.style.opacity = 1;
+};
+
 function renderCountry(data) {
   const { flag, name, region, population, languages, currencies } = data;
   const language = languages[0].name;
@@ -61,7 +66,11 @@ const getCountryDataPromise = function (country) {
       return fetch(`${restCountriesURL}/alpha/${borderCountry}`);
     })
     .then(response => response.json())
-    .then(data => renderCountry(data));
+    .then(data => renderCountry(data))
+    .catch(err => renderError(err.message))
+    .finally((countriesContainer.opacity = 1));
 };
 
-getCountryDataPromise('Mexico');
+btn.addEventListener('click', function () {
+  getCountryDataPromise('Mexico');
+});
