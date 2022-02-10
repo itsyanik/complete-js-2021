@@ -74,10 +74,6 @@ const getCountryDataPromise = function (country) {
     .finally((countriesContainer.opacity = 1));
 };
 
-btn.addEventListener('click', function () {
-  getCountryDataPromise('Mexico');
-});
-
 // Coding Challenge #1
 /* 
 In this challenge you will build a function 'whereAmI' which renders a country 
@@ -157,3 +153,34 @@ const lottery = new Promise(function (resolve, reject) {
 });
 
 lottery.then(res => console.log(res)).catch(err => console.error(err));
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+const whereAmI2 = function (lat, lng) {
+  console.log('--------------WHERE AM I 2---------------');
+  getPosition()
+    .then(pos => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+      const geoSite = 'https://geocode.xyz';
+
+      return fetch(`${geoSite}/${lat},${lng}?geoit=json`);
+    })
+    .then(resp => {
+      if (!resp.ok) throw new Error(`Something went wrong. ${resp.status}`);
+      return resp.json();
+    })
+    .then(data => {
+      const { city, country } = data;
+      console.log(`You are in ${city}, ${country}.`);
+
+      getCountryDataPromise(country);
+    })
+    .catch(err => console.error(err));
+};
+
+getPosition().then(res => console.log(res));
+btn.addEventListener('click', whereAmI2);
