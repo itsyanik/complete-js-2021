@@ -528,6 +528,8 @@ var _searchView = require("./views/searchView");
 var _searchViewDefault = parcelHelpers.interopDefault(_searchView);
 var _resultsView = require("./views/resultsView");
 var _resultsViewDefault = parcelHelpers.interopDefault(_resultsView);
+var _paginationView = require("./views/paginationView");
+var _paginationViewDefault = parcelHelpers.interopDefault(_paginationView);
 var _runtime = require("regenerator-runtime/runtime");
 var _regeneratorRuntime = require("regenerator-runtime");
 if (module.hot) module.hot.accept();
@@ -550,18 +552,24 @@ const controlSearchResults = async function() {
         const query = _searchViewDefault.default.getQuery();
         if (!query) return;
         await _model.loadSearchResults(query);
-        _resultsViewDefault.default.render(_model.state.search.results);
+        _resultsViewDefault.default.render(_model.getSearchResultsPage());
+        _paginationViewDefault.default.render(_model.state.search);
     } catch (e) {
         console.error(e);
     }
 };
+const controlPagination = function(goToPage) {
+    _resultsViewDefault.default.render(_model.getSearchResultsPage(goToPage));
+    _paginationViewDefault.default.render(_model.state.search);
+};
 const init = ()=>{
     _recipeViewDefault.default.addHandlerRender(controlRecipes);
     _searchViewDefault.default.addHandlerSearch(controlSearchResults);
+    _paginationViewDefault.default.addHandlerClick(controlPagination);
 };
 init();
 
-},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./model":"Y4A21","./views/recipeView":"l60JC","regenerator-runtime":"dXNgZ","./views/searchView":"9OQAM","./views/resultsView":"cSbZE"}],"49tUX":[function(require,module,exports) {
+},{"core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./model":"Y4A21","./views/recipeView":"l60JC","./views/searchView":"9OQAM","./views/resultsView":"cSbZE","regenerator-runtime":"dXNgZ","./views/paginationView":"6z7bi"}],"49tUX":[function(require,module,exports) {
 var $ = require('../internals/export');
 var global = require('../internals/global');
 var task = require('../internals/task');
@@ -2241,6 +2249,8 @@ parcelHelpers.export(exports, "loadRecipe", ()=>loadRecipe
 );
 parcelHelpers.export(exports, "loadSearchResults", ()=>loadSearchResults
 );
+parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage
+);
 var _regeneratorRuntime = require("regenerator-runtime");
 var _config = require("./config");
 var _helpers = require("./helpers");
@@ -2249,7 +2259,9 @@ const state = {
     },
     search: {
         query: '',
-        results: []
+        results: [],
+        page: _config.INITIAL_SEARCH_PAGE,
+        resultsPerPage: _config.RESULTS_PER_PAGE
     }
 };
 const loadRecipe = async function(id) {
@@ -2288,6 +2300,12 @@ const loadSearchResults = async function(query) {
         throw e;
     }
 };
+const getSearchResultsPage = function(page = state.search.page) {
+    state.search.page = page;
+    const start = (page - 1) * state.search.resultsPerPage;
+    const end = page * state.search.resultsPerPage;
+    return state.search.results.slice(start, end);
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","regenerator-runtime":"dXNgZ","./config":"k5Hzs","./helpers":"hGI1E"}],"k5Hzs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -2296,8 +2314,14 @@ parcelHelpers.export(exports, "API_URL", ()=>API_URL
 );
 parcelHelpers.export(exports, "TIMEOUT_SECONDS", ()=>TIMEOUT_SECONDS
 );
+parcelHelpers.export(exports, "RESULTS_PER_PAGE", ()=>RESULTS_PER_PAGE
+);
+parcelHelpers.export(exports, "INITIAL_SEARCH_PAGE", ()=>INITIAL_SEARCH_PAGE
+);
 const API_URL = 'https://forkify-api.herokuapp.com/api/v2/recipes/';
 const TIMEOUT_SECONDS = 10;
+const RESULTS_PER_PAGE = 10;
+const INITIAL_SEARCH_PAGE = 1;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -2813,7 +2837,7 @@ class View {
 }
 exports.default = View;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../img/icons.svg":"loVOp"}],"9OQAM":[function(require,module,exports) {
+},{"url:../../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9OQAM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _view = require("./View");
@@ -2837,7 +2861,7 @@ class SearchView extends _viewDefault.default {
 }
 exports.default = new SearchView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View":"5cUXS"}],"cSbZE":[function(require,module,exports) {
+},{"./View":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cSbZE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _view = require("./View");
@@ -2875,6 +2899,59 @@ class ResultsView extends _viewDefault.default {
 }
 exports.default = new ResultsView();
 
-},{"./View":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../img/icons.svg":"loVOp"}]},["ddCAb","aenu9"], "aenu9", "parcelRequirea411")
+},{"./View":"5cUXS","url:../../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6z7bi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+var _iconsSvg = require("url:../../img/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
+class PaginationView extends _viewDefault.default {
+    _parentElement = document.querySelector('.pagination');
+    addHandlerClick(handler) {
+        this._parentElement.addEventListener('click', function(e) {
+            const btn = e.target.closest('.btn--inline');
+            if (!btn) return;
+            const goToPage = Number(btn.dataset.goto);
+            handler(goToPage);
+        });
+    }
+    _generateMarkup() {
+        const numPages = Math.ceil(this._data.results.length / this._data.resultsPerPage);
+        const currentPage = this._data.page;
+        const nextPageMarkup = `
+      <button 
+        data-goto="${currentPage + 1}" 
+        class="btn--inline pagination__btn--next"
+      >
+        <span>Page ${currentPage + 1}</span>
+        <svg class="search__icon">
+          <use href="${_iconsSvgDefault.default}#icon-arrow-right"></use>
+        </svg>
+      </button>
+    `;
+        const prevPageMarkup = `
+      <button 
+        data-goto="${currentPage - 1}"
+        class="btn--inline pagination__btn--prev"
+      >
+        <svg class="search__icon">
+          <use href="${_iconsSvgDefault.default}#icon-arrow-left"></use>
+        </svg>
+        <span>Page ${currentPage - 1}</span>
+      </button>
+    `;
+        if (currentPage === 1 && numPages > 1) return nextPageMarkup;
+        if (currentPage === numPages && numPages > 1) return prevPageMarkup;
+        if (currentPage < numPages) return `
+        ${prevPageMarkup}
+        ${nextPageMarkup}
+      `;
+        return '';
+    }
+}
+exports.default = new PaginationView();
+
+},{"./View":"5cUXS","url:../../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ddCAb","aenu9"], "aenu9", "parcelRequirea411")
 
 //# sourceMappingURL=index.e37f48ea.js.map
