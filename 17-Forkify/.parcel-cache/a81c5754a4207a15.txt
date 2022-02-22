@@ -1,8 +1,8 @@
-7193
-111/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.e37f48ea.js.map1645463281079216408 0
-108/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/icons.21bad73c.svg1645460856460228875 0
+7198
+111/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.e37f48ea.js.map1645558441112227895 0
+108/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/icons.21bad73c.svg1645477446193514966 0
 107/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.62406edb.js1645454475938206448 0
-89/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist1645463281079216408 1
+89/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist1645558441112227895 1
 124/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/forkify-architecture-recipe-loading.png1645121366747000000 0
 97/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/package.json1645460830181008594 0
 106/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/sass/_upload.scss1645121342032190330 0
@@ -14,10 +14,13 @@
 93/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/sass1645121342032190330 1
 101/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/img/logo.png1645121342024190417 0
 92/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/img1645121342024190417 1
-105/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/controller.js1645463280955214848 0
-101/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/config.js1645462767338628890 0
-111/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/views/recipeView.js1645463244214725752 0
-100/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/model.js1645462271352193764 0
+105/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/controller.js1645558618532277374 0
+101/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/config.js1645537507457370065 0
+112/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/views/resultsView.js1645477995354147818 0
+115/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/views/paginationView.js1645558637586990233 0
+111/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/views/recipeView.js1645558631327407924 0
+111/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/views/searchView.js1645476751285504281 0
+100/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/model.js1645558443476249453 0
 113/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/forkify-flowchart-part-2.png1645121366849000000 0
 115/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/anymatch/index.js1645121806642478808 0
 124/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/source-map-js/CHANGELOG.md1645121665654260681 0
@@ -51,7 +54,7 @@
 121/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/escalade/sync/index.mjs1645121665918236117 0
 111/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/escalade/sync1645121665934234630 1
 114/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/escalade/license1645121665818245422 0
-108/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.f7626f62.css1645460856436229573 0
+108/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.f7626f62.css1645477446177513334 0
 117/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/path-type/readme.md1645121665666259565 0
 107/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/path-type1645121665658260309 1
 117/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/escalade/index.d.ts1645121665934234630 0
@@ -559,7 +562,7 @@
 127/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/css-declaration-sorter/orders1645121666026226072 1
 131/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/css-declaration-sorter/license.md1645121665934234630 0
 130/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/css-declaration-sorter/readme.md1645121665938234257 0
-107/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.e37f48ea.js1645463281079216408 0
+107/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.e37f48ea.js1645558441108227857 0
 120/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/css-declaration-sorter1645121665934234630 1
 147/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/postcss-discard-comments/src/lib/commentParser.js1645121665822245049 0
 130/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/postcss-discard-comments/src/lib1645121665822245049 1
@@ -937,6 +940,7 @@
 124/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/utils/.eslintrc.js1645121672661612389 0
 124/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/utils/package.json1645121674301461706 0
 138/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/utils/src/generateCertificate.js1645121672697609077 0
+113/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/views/bookMarkView.js1645558544057781771 0
 129/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/utils/src/countLines.js1645121672677610917 0
 108/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/css-select1645121665482276685 1
 129/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/utils/src/objectHash.js1645121674289462807 0
@@ -2343,6 +2347,7 @@
 120/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/nan/nan_scriptorigin.h1645121666026226072 0
 102/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/sass1645122467785474454 1
 127/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/source-map/lib/source-node.js1645121665374286733 0
+105/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/views/View.js1645555567507876435 0
 124/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/postcss-colormin/README.md1645121665826244678 0
 157/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/dom-serializer/node_modules/entities/lib/maps/entities.json1645121673509534429 0
 127/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/source-map/dist/source-map.js1645121665422282267 0
@@ -3670,7 +3675,7 @@
 110/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/yaml/LICENSE1645121665818245422 0
 127/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/domhandler/lib/index.d.ts.map1645121665470277801 0
 135/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/modules/es.symbol.iterator.js1645455083028343109 0
-100/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.html1645460856456228992 0
+100/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.html1645539018137920782 0
 133/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/caniuse-lite/data/features/webgl.js1645121666418189658 0
 125/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/normalize-path/package.json1645121806694474911 0
 156/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/runtime-service-worker/lib/ServiceWorkerRuntime.js1645121670289831011 0
@@ -4586,7 +4591,7 @@
 130/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/regenerator-runtime/package.json1645121666010227558 0
 153/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/lmdb/dependencies/lmdb-data-v1/libraries/liblmdb/midl.h1645121666486183340 0
 145/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/features/number/virtual/to-precision.js1645455083308330385 0
-108/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/icons.dfd7a6db.svg1645460879947558582 0
+108/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/icons.dfd7a6db.svg1645477446177513334 0
 116/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/picocolors/LICENSE1645121665818245422 0
 152/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@babel/highlight/node_modules/supports-color/readme.md1645121673521533327 0
 153/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/lmdb/dependencies/lmdb-data-v1/libraries/liblmdb/midl.c1645121666406190772 0
@@ -4729,7 +4734,7 @@
 104/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/base-x1645121667458093111 1
 138/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/utility-types/dist/functional-helpers.js1645121665978230535 0
 132/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/features/iterator/every.js1645455083068341292 0
-95/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/index.html1645459023721031481 0
+95/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/index.html1645539018049920497 0
 126/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/transformer-html/src1645121670085849841 1
 143/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/features/iterator/as-indexed-pairs.js1645455082940347111 0
 119/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/entities/lib/index.js1645121665458278918 0
@@ -5271,7 +5276,7 @@
 129/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/stable/string/substr.js1645455083292331112 0
 132/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/postcss-discard-comments/README.md1645121665898237979 0
 126/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/stable/string/sub.js1645455083288331295 0
-110/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/favicon.8b2f57bf.png1645460856448229225 0
+110/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/favicon.8b2f57bf.png1645477446201515783 0
 124/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/es/object/index.js1645455083144337837 0
 130/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/internals/array-slice.js1645455082936347293 0
 128/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/stable/string/small.js1645455083272332021 0
@@ -5621,7 +5626,7 @@
 144/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/modules/esnext.map.update-or-insert.js1645455083052342019 0
 133/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/modules/es.object.values.js1645455083020343473 0
 131/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/modules/es.object.keys.js1645455083016343655 0
-107/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/logo.726d37a8.png1645460856444229341 0
+107/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/logo.726d37a8.png1645477446181513744 0
 115/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/dotenv-expand/lib1645121666774156586 1
 128/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/cache/lib/LMDBCache.js1645121668601987095 0
 147/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@babel/highlight/node_modules/ansi-styles/license1645121673677518994 0
@@ -5778,7 +5783,7 @@
 135/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/stable/array/virtual/every.js1645455083068341292 0
 136/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/modules/es.number.is-finite.js1645455083012343837 0
 145/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/watcher/src/watchman/WatchmanBackend.hh1645121667830058609 0
-97/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/views1645462015454570747 1
+97/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/src/js/views1645558517187968043 1
 140/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/json-parse-even-better-errors/CHANGELOG.md1645121665570268497 0
 145/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/modules/es.typed-array.float32-array.js1645455083032342927 0
 132/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/internals/a-constructor.js1645455082912348384 0
@@ -6576,7 +6581,7 @@
 123/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/watcher/src/macos1645121667826058981 1
 138/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/node-resolver-core/lib/_empty.js1645121667706070110 0
 122/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/es/math/log1p.js1645455083208334929 0
-112/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.f7626f62.css.map1645460856436229573 0
+112/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/dist/index.f7626f62.css.map1645477446177513334 0
 121/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/core-js/es/math/tanh.js1645455083292331112 0
 138/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/runtime-browser-hmr/package.json1645121670361824365 0
 138/home/wbj-00165/Documents/studies/complete-javascript-course-2021/student/17-Forkify/node_modules/@parcel/watcher/src/windows/win_utils.cc1645121667826058981 0

@@ -1,9 +1,8 @@
 import icons from 'url:../../img/icons.svg';
-const recipeContainer = document.querySelector('.recipe');
 
 export default class View {
   _data;
-  render(data) {
+  render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
 
@@ -11,8 +10,10 @@ export default class View {
 
     const markup = this._generateMarkup();
 
+    if (!render) return markup;
+
     this._clear();
-    recipeContainer.insertAdjacentHTML('afterbegin', markup);
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
   update(data) {
